@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2516293718071115215}
   - component: {fileID: 7657904421236654617}
   - component: {fileID: -6970046633684437982}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: FallingTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,10 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tile: 0
   sticky: 0
-  landingDirection: {x: 0, y: 0}
+  landingDirection: {x: 0, y: -1}
   rotMin: -10
   rotMax: 10
-  projectileLifetime: 10
+  projectileLifetime: 60
 --- !u!50 &7657904421236654617
 Rigidbody2D:
   serializedVersion: 4

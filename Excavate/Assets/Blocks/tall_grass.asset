@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ce81a73a27daa4184f3c3d87d0a2b3, type: 3}
+  m_Name: tall_grass
+  m_EditorClassIdentifier: 
+  tile:
+  - {fileID: 11400000, guid: c68216c2fb4243540a9db15d6ad03999, type: 2}
+  state: 0
+  tileImage: {fileID: -74838941, guid: e554396463dea0a4285ca3d3fa284a38, type: 3}
+  referenceGameObjects: []
+  health: 0
+  friction: 1
+  position: {x: -52, y: 103, z: 0}
+  directionsToUpdateURDL: 00000000
+  chunkUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  tileUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: Block, Assembly-CSharp
+        m_MethodName: BreakIfUnSupported
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 100 0 -1 0 1,2
+          m_BoolArgument: 0
+        m_CallState: 2
+  randomUpdate:
+    m_PersistentCalls:
+      m_Calls: []

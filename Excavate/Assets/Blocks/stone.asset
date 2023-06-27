@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ce81a73a27daa4184f3c3d87d0a2b3, type: 3}
   m_Name: stone
   m_EditorClassIdentifier: 
-  tile: {fileID: 11400000, guid: 55bbd17a09fbbe54ba1241ddac1f6f8a, type: 2}
+  tile:
+  - {fileID: 11400000, guid: f8c42cce6840bab4b85dbdab83da4bac, type: 2}
+  state: 0
   tileImage: {fileID: -1551312160, guid: e349eabeda50e02428fde9833006abb9, type: 3}
   referenceGameObjects: []
   health: 5
+  friction: 0
   position: {x: -28, y: 0, z: 0}
+  directionsToUpdateURDL: 00000000
+  chunkUpdate:
+    m_PersistentCalls:
+      m_Calls: []
   tileUpdate:
     m_PersistentCalls:
       m_Calls: []

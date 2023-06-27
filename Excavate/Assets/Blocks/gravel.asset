@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ce81a73a27daa4184f3c3d87d0a2b3, type: 3}
+  m_Name: gravel
+  m_EditorClassIdentifier: 
+  tile:
+  - {fileID: 11400000, guid: 0e5608d09a305f74196330be9011d501, type: 2}
+  state: 0
+  tileImage: {fileID: -1659918019, guid: f786bd78c308c394d9e758a5c41003b8, type: 3}
+  referenceGameObjects:
+  - {fileID: 2049187255320816543, guid: 6292e232f6166a84384b1c0d9012efcd, type: 3}
+  health: 1
+  friction: 1
+  position: {x: 3, y: 103, z: 0}
+  directionsToUpdateURDL: 01000100
+  chunkUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  tileUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: Block, Assembly-CSharp
+        m_MethodName: FallingBlock
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 100 0 -1 0 0 0 false 0 -1
+          m_BoolArgument: 0
+        m_CallState: 2
+  randomUpdate:
+    m_PersistentCalls:
+      m_Calls: []

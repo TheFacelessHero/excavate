@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ce81a73a27daa4184f3c3d87d0a2b3, type: 3}
   m_Name: grass_block
   m_EditorClassIdentifier: 
-  tile: {fileID: 11400000, guid: 504de5bfa97600745a632fa434c8d795, type: 2}
+  tile:
+  - {fileID: 11400000, guid: 0f40756dc0904544688b1fc001ff1879, type: 2}
+  state: 0
   tileImage: {fileID: 346364810, guid: 48e7a425856337846bf846b7f83355ae, type: 3}
   referenceGameObjects: []
   health: 2
-  position: {x: 420, y: 115, z: 0}
+  friction: 1
+  position: {x: 84, y: 116, z: 0}
   directionsToUpdateURDL: 00000000
+  chunkUpdate:
+    m_PersistentCalls:
+      m_Calls: []
   tileUpdate:
     m_PersistentCalls:
       m_Calls: []

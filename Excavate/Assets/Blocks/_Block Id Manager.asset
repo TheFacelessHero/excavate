@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7640e8e512c9c428c465f30e0dc15f, type: 3}
-  m_Name: Block Id Manager
+  m_Name: _Block Id Manager
   m_EditorClassIdentifier: 
   Blocks:
   - {fileID: 11400000, guid: 3a8f5ec128953584a926702d8ae17d0a, type: 2}
   - {fileID: 11400000, guid: e7453c455cb785e4998e45d69a14cd35, type: 2}
   - {fileID: 11400000, guid: 26bdd0950ca8e42459942fb231739baf, type: 2}
   - {fileID: 11400000, guid: a1d5e04538e40674586778c31f6db767, type: 2}
+  - {fileID: 11400000, guid: 7aab8586ddb23dd499b77723e695bd2e, type: 2}
+  - {fileID: 11400000, guid: 6b37c77b7a6504246a6263382408b5ee, type: 2}
+  - {fileID: 11400000, guid: 4040f5b5ecd7e9d4cb815ee3cc7719a3, type: 2}
   - {fileID: 11400000, guid: fddaad548c5194b468325587303e6618, type: 2}

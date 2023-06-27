@@ -5,12 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class WorldManager : MonoBehaviour
 {
+    public string worldName;
     public Transform generateChunksAround;
     public float seed;
     public float smoothness = 30;
     public float terrainHeightMultiplier = 10;
     public int heightDisplacement = 100;
     public int chunkGenRadius = 3;
+    public float chunkDespawnDistance = 50;
     public Tilemap tilemap;
     public GameObject chunkPrefab;
     public List<string> chunks;
@@ -21,6 +23,8 @@ public class WorldManager : MonoBehaviour
     public Vector2Int allChunkSize = new Vector2Int(10, 10);
     public float timeBetweenPlacement = 0.05f;
     float timeBetweenBlocks = 0;
+    public float chunkUpdateTimer = 0.1f;
+    float curchunkTimer;
     public float randomUpdateTimer = 0.5f;
     public int randomUpdates = 3;
     float currandTimer;
@@ -32,8 +36,9 @@ public class WorldManager : MonoBehaviour
     {
         if (seed == 0) seed = Random.Range(-1000f, 1000f);
         mainCam = Camera.main;
+        curchunkTimer = 1;
+        currandTimer = 1;
 
-        
     }
 
     //Add function that gets chunk
@@ -42,41 +47,47 @@ public class WorldManager : MonoBehaviour
 
 
         if (mainCam == null) mainCam = Camera.main;
+        /*
+                if (Input.GetMouseButtonDown(0))
+                {
+                    timeBetweenBlocks = 0;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            timeBetweenBlocks = 0;
-            
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            timeBetweenBlocks = 0;
-            
-        }
+                }
+                if (Input.GetMouseButtonDown(1))
+                {
+                    timeBetweenBlocks = 0;
 
-        if (Input.GetMouseButton(0))
-        {
-            timeBetweenBlocks -= Time.deltaTime;
-            if (timeBetweenBlocks <= 0)
-            {
-                timeBetweenBlocks = timeBetweenPlacement;
-                SetTile(mainCam.ScreenToWorldPoint(Input.mousePosition), 0);
-            }
-        }else if (Input.GetMouseButton(1))
-        {
-            timeBetweenBlocks -= Time.deltaTime;
-            if (timeBetweenBlocks <= 0)
-            {
-                timeBetweenBlocks = timeBetweenPlacement;
-                SetTile(mainCam.ScreenToWorldPoint(Input.mousePosition), selectedTileToPlace);
-            }
-        }
-        else if (Input.GetMouseButtonDown(2))
+                }
+
+                if (Input.GetMouseButton(0))
+                {
+                    timeBetweenBlocks -= Time.deltaTime;
+                    if (timeBetweenBlocks <= 0)
+                    {
+                        timeBetweenBlocks = timeBetweenPlacement;
+                        SetTile(mainCam.ScreenToWorldPoint(Input.mousePosition), 0);
+                    }
+                }else if (Input.GetMouseButton(1))
+                {
+                    timeBetweenBlocks -= Time.deltaTime;
+                    if (timeBetweenBlocks <= 0)
+                    {
+                        timeBetweenBlocks = timeBetweenPlacement;
+                        SetTile(mainCam.ScreenToWorldPoint(Input.mousePosition), selectedTileToPlace);
+                    }
+                }
+                else if (Input.GetMouseButtonDown(2))
+                {
+                    Debug.Log(GetTile(mainCam.ScreenToWorldPoint(Input.mousePosition)));
+                    UpdateTile(mainCam.ScreenToWorldPoint(Input.mousePosition));
+                }
+        */
+
+        if (Input.GetMouseButtonDown(2))
         {
             Debug.Log(GetTile(mainCam.ScreenToWorldPoint(Input.mousePosition)));
             UpdateTile(mainCam.ScreenToWorldPoint(Input.mousePosition));
         }
-
         /*for (int x = -chunkGenRadius; x < chunkGenRadius; x++)
         {
             for (int y = -chunkGenRadius; y < chunkGenRadius; y++)
@@ -90,7 +101,7 @@ public class WorldManager : MonoBehaviour
             {
                 if (chunkGenY <= chunkGenRadius)
                 {
-                    GenerateChunk(new Vector2(generateChunksAround.position.x + chunkGenX * 10, generateChunksAround.position.y + chunkGenY * 10));
+                    GenerateChunk(new Vector2(generateChunksAround.position.x + chunkGenX * allChunkSize.x, generateChunksAround.position.y + chunkGenY * allChunkSize.y));
                     chunkGenY++;
 
                     if (chunkGenY >= chunkGenRadius)
@@ -117,6 +128,17 @@ public class WorldManager : MonoBehaviour
             for (int i = 0; i < chunks.Length; i++)
             {
                 chunks[i].RandomUpdateChunk(randomUpdates);
+            }
+        }
+
+        curchunkTimer -= Time.deltaTime;
+        if (curchunkTimer <= 0)
+        {
+            curchunkTimer = chunkUpdateTimer;
+            ChunkManager[] chunks = GetComponentsInChildren<ChunkManager>();
+            for (int i = 0; i < chunks.Length; i++)
+            {
+                chunks[i].UpdateChunk();
             }
         }
 

@@ -14,13 +14,14 @@ public class FallingBlock : MonoBehaviour
     [SerializeField] float rotMax = 10;
     [SerializeField] float projectileLifetime = 10;
 
-    private void Awake()
+    private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         wm = FindObjectOfType<WorldManager>();
 
-        sr.sprite = wm.blockIDs.Blocks[wm.selectedTileToPlace].tileImage;
+
+        sr.sprite = wm.blockIDs.Blocks[tile].tileImage;
 
         rb.angularVelocity = Random.Range(rotMin, rotMax);
     }
